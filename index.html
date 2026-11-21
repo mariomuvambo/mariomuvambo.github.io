@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mário Castigo Muvambo | Desenvolvedor Full Stack | E-Learning</title>
+<meta name="description" content="Portfólio de Mário Castigo Muvambo, Desenvolvedor Full Stack e de E-Learning em Maputo, Moçambique. React Native, Laravel, Django, Articulate Storyline 360 e Moodle.">
+
+<!-- Pré-visualização no LinkedIn / WhatsApp: troque mariomuvambo pelo seu utilizador do GitHub -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mário Castigo Muvambo | Desenvolvedor Full Stack | E-Learning">
+<meta property="og:description" content="Aplicações web e móveis, e módulos de e-learning interactivos em Articulate Storyline 360.">
+<meta property="og:image" content="https://mariomuvambo.github.io/images/og-image.jpg">
+<meta property="og:url" content="https://mariomuvambo.github.io/">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2313294B'/><text x='50%' y='58%' text-anchor='middle' font-family='Arial' font-weight='700' font-size='28' fill='%23E9A23B'>MM</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --indico:#13294B;      /* azul profundo do Índico */
+  --oceano:#1E7A8C;
+  --sol:#E9A23B;         /* amarelo da capulana */
+  --folha:#2F7D4E;
+  --papel:#F5F7F9;
+  --superficie:#FFFFFF;
+  --texto:#1B2430;
+  --suave:#56627A;
+  --linha:#DCE2EA;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --corpo:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --papel:#0F1A2C; --superficie:#16243A; --texto:#E8EDF4; --suave:#A7B3C6; --linha:#2A3A54;
+    --indico:#E8EDF4; --oceano:#5FB7C8;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+body{margin:0;background:var(--papel);color:var(--texto);font:400 1.0625rem/1.6 var(--corpo)}
+img{max-width:100%;display:block}
+a{color:var(--oceano)}
+:focus-visible{outline:3px solid var(--sol);outline-offset:3px;border-radius:4px}
+.contentor{width:min(1120px, 100% - 2.5rem);margin-inline:auto}
+
+/* ---------- Navegação ---------- */
+.topo{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--papel) 88%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+.topo .contentor{display:flex;align-items:center;gap:1.5rem;min-height:64px}
+.marca{font:800 1.15rem var(--display);color:var(--indico);text-decoration:none;margin-right:auto}
+.menu{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0}
+.menu a{color:var(--texto);text-decoration:none;font-weight:600;font-size:.95rem}
+.menu a:hover{color:var(--oceano)}
+.idioma{border:1.5px solid var(--linha);background:var(--superficie);color:var(--texto);border-radius:999px;padding:.3rem .8rem;font:600 .85rem var(--corpo);cursor:pointer}
+.idioma b{color:var(--oceano)}
+@media (max-width:820px){ .menu{display:none} }
+
+/* ---------- Capulana (o elemento memorável) ---------- */
+.capulana{
+  background:
+    linear-gradient(135deg, var(--sol) 25%, transparent 25%) 0 0/40px 40px,
+    linear-gradient(225deg, var(--sol) 25%, transparent 25%) 0 0/40px 40px,
+    linear-gradient(315deg, #C0392B 25%, transparent 25%) 20px 20px/40px 40px,
+    linear-gradient(45deg, #C0392B 25%, transparent 25%) 20px 20px/40px 40px,
+    #13294B;
+}
+
+/* ---------- Início ---------- */
+.inicio{padding:4.5rem 0 5rem}
+.inicio .contentor{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center}
+.inicio h1{font:800 clamp(2.6rem, 6vw, 4.6rem)/1 var(--display);letter-spacing:-.02em;color:var(--indico);margin:0 0 1rem}
+.cargo{font:700 clamp(1.1rem,2vw,1.35rem)/1.3 var(--display);color:var(--oceano);margin:0 0 1.25rem}
+.cargo .sep{color:var(--sol);font-weight:500;margin:0 .5rem}
+.inicio p.intro{max-width:34rem;color:var(--suave);font-size:1.15rem;margin:0 0 2rem}
+.botoes{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.3rem;border-radius:10px;font:600 1rem var(--corpo);text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn-principal{background:#13294B;color:#fff}
+.btn-principal:hover{background:#1E7A8C}
+.btn-linha{border-color:var(--linha);color:var(--texto);background:var(--superficie)}
+.btn-linha:hover{border-color:var(--oceano)}
+.local{margin-top:1.75rem;color:var(--suave);font-size:.95rem}
+.moldura{position:relative;justify-self:end;width:min(380px,100%)}
+.moldura .capulana{position:absolute;inset:1.5rem -1.5rem -1.5rem 1.5rem;border-radius:18px}
+.moldura img{position:relative;border-radius:18px;aspect-ratio:4/5;object-fit:cover;width:100%;box-shadow:0 20px 40px -20px rgba(19,41,75,.5)}
+@media (max-width:820px){
+  .inicio{padding-top:2.5rem}
+  .inicio .contentor{grid-template-columns:1fr}
+  .moldura{justify-self:start;width:min(300px,85%);order:-1}
+}
+
+/* ---------- Secções ---------- */
+section{padding:4.5rem 0;scroll-margin-top:64px}
+.alt{background:var(--superficie);border-block:1px solid var(--linha)}
+h2{font:800 clamp(1.8rem,3.5vw,2.5rem)/1.1 var(--display);color:var(--indico);margin:0 0 .75rem;letter-spacing:-.01em}
+.lead{color:var(--suave);max-width:40rem;margin:0 0 2.5rem}
+h3{font:700 1.3rem/1.25 var(--display);color:var(--indico);margin:0 0 .5rem}
+
+/* Sobre */
+.sobre{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem;align-items:center}
+.sobre img{border-radius:16px;aspect-ratio:4/5;object-fit:cover}
+.sobre p{max-width:38rem}
+.factos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;border-top:1px solid var(--linha);padding-top:1.5rem}
+.factos strong{display:block;font:700 1.05rem var(--display);color:var(--indico)}
+.factos span{color:var(--suave);font-size:.95rem}
+@media (max-width:820px){ .sobre{grid-template-columns:1fr} .sobre img{max-width:320px} .factos{grid-template-columns:1fr} }
+
+/* Competências */
+.grupos{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.grupos h3{font-size:1.05rem;padding-bottom:.6rem;border-bottom:3px solid var(--sol);margin-bottom:.9rem}
+.grupos ul{list-style:none;margin:0;padding:0}
+.grupos li{padding:.3rem 0;color:var(--texto)}
+@media (max-width:900px){ .grupos{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:520px){ .grupos{grid-template-columns:1fr} }
+
+/* Projecto em destaque (IEDA) */
+.destaque{display:grid;grid-template-columns:1.1fr .9fr;border-radius:20px;overflow:hidden;background:var(--superficie);border:1px solid var(--linha);margin-bottom:3rem}
+.destaque img{height:100%;object-fit:cover;min-height:280px}
+.destaque .corpo{padding:2.25rem}
+.etiqueta{display:inline-block;background:color-mix(in srgb,var(--folha) 14%,transparent);color:var(--folha);font-weight:600;font-size:.85rem;padding:.2rem .65rem;border-radius:6px;margin-bottom:.9rem}
+.tecnologias{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 0;padding:0;list-style:none}
+.tecnologias li{font-size:.85rem;font-weight:600;padding:.2rem .6rem;border-radius:6px;border:1px solid var(--linha);color:var(--suave)}
+@media (max-width:820px){ .destaque{grid-template-columns:1fr} }
+
+/* Módulos Storyline */
+.modulos{display:grid;grid-template-columns:1fr;gap:1.5rem}
+.modulo{border:1px solid var(--linha);border-radius:14px;overflow:hidden;background:var(--superficie);display:flex;flex-direction:column}
+.modulo .capa{aspect-ratio:16/9;display:grid;place-items:center;color:#fff;font:700 1.1rem var(--display);text-align:center;padding:1rem}
+.modulo .capa.capulana span{background:#13294B;padding:.4rem .9rem;border-radius:8px}
+.modulo .corpo{padding:1.25rem;display:flex;flex-direction:column;gap:.75rem;flex:1}
+.modulo p{margin:0;color:var(--suave);font-size:.98rem}
+.modulo .btn{align-self:flex-start;margin-top:auto}
+
+.modulo.largo{display:grid;grid-template-columns:1.15fr 1fr}
+.capa-img{position:relative;display:flex;align-items:center;padding:1.25rem;border:0;background:#EEF2F7;cursor:pointer;overflow:hidden}
+.capa-img img{width:100%;height:auto;border-radius:8px;box-shadow:0 12px 30px -16px rgba(19,41,75,.5);transition:transform .3s}
+.capa-img:hover img{transform:scale(1.03)}
+.jogar{position:absolute;left:50%;top:50%;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:50%;background:rgba(19,41,75,.85);display:grid;place-items:center;box-shadow:0 0 0 6px rgba(233,162,59,.55)}
+.tri{width:0;height:0;border-left:20px solid #FFFFFF;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+.modulo.largo .corpo{padding:1.75rem}
+.modulo.largo .destaques{margin:.25rem 0}
+@media (max-width:860px){ .modulo.largo{grid-template-columns:1fr} }
+/* Projectos de desenvolvimento */
+.projectos{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.projecto{border:1px solid var(--linha);border-radius:16px;overflow:hidden;background:var(--superficie);display:flex;flex-direction:column}
+.projecto .imagem{position:relative;aspect-ratio:16/10;background:color-mix(in srgb,var(--oceano) 10%,var(--superficie));display:grid;place-items:center;color:var(--suave);font-size:.95rem;text-align:center;padding:1rem}
+.projecto .imagem img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.projecto .corpo{padding:1.5rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.projecto ul.pontos{margin:.25rem 0 0;padding-left:1.1rem;color:var(--suave)}
+.projecto .accoes{display:flex;gap:.6rem;margin-top:auto;padding-top:1rem}
+@media (max-width:820px){ .projectos{grid-template-columns:1fr} }
+
+/* Experiência: linha do tempo */
+.linha-tempo{list-style:none;margin:0;padding:0;border-left:3px solid var(--linha);max-width:46rem}
+.linha-tempo li{position:relative;padding:0 0 2.25rem 2rem}
+.linha-tempo li::before{content:"";position:absolute;left:-10px;top:.35rem;width:17px;height:17px;border-radius:50%;background:var(--superficie);border:4px solid var(--oceano)}
+.linha-tempo .periodo{font-weight:600;color:var(--oceano);font-size:.95rem}
+.linha-tempo .empresa{color:var(--suave);margin:.1rem 0 .5rem}
+.linha-tempo p{margin:0}
+
+/* Certificações */
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.cert{border-top:4px solid var(--folha);background:var(--superficie);border-radius:0 0 12px 12px;padding:1.4rem;border-inline:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+.cert p{margin:.25rem 0;color:var(--suave);font-size:.98rem}
+@media (max-width:820px){ .certs{grid-template-columns:1fr} }
+
+/* Contacto */
+.contacto{background:#13294B;color:#E8EDF4;padding:5rem 0}
+.contacto h2{color:#fff}
+.contacto .lead{color:#B9C5D8}
+.contactos{display:flex;flex-wrap:wrap;gap:.9rem}
+.contactos a{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.2rem;border-radius:10px;background:rgba(255,255,255,.08);color:#fff;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.15)}
+.contactos a:hover{background:#E9A23B;color:#13294B}
+.contactos svg{width:20px;height:20px;flex:none}
+footer{background:#0E1F3A;color:#8FA0BA;font-size:.9rem;padding:1.25rem 0}
+.faixa{height:14px}
+
+
+/* Produto em destaque: Paróquia Digital */
+.produto{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:start;margin-bottom:2rem}
+.produto-titulo{font:800 clamp(2rem,4vw,2.8rem)/1 var(--display);color:#5A1220;margin:.2rem 0 .6rem}
+@media (prefers-color-scheme: dark){ .produto-titulo{color:#E9A23B} }
+.produto-sub{font-size:1.2rem;color:var(--suave);margin:0 0 1rem}
+.destaques{list-style:none;padding:0;margin:1.25rem 0;display:grid;gap:.55rem}
+.destaques li{position:relative;padding-left:1.4rem}
+.destaques li::before{content:"";position:absolute;left:0;top:.6rem;width:.55rem;height:.55rem;border-radius:2px;background:var(--sol);transform:rotate(45deg)}
+.produto .accoes{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+.produto-principal{margin:0}
+.produto-principal figcaption{font-size:.85rem;color:var(--suave);margin-top:.6rem;text-align:center}
+.ecra{display:block;width:100%;padding:0;border:1px solid var(--linha);border-radius:16px;overflow:hidden;background:var(--superficie);cursor:zoom-in;box-shadow:0 18px 40px -24px rgba(19,41,75,.45);transition:transform .2s}
+.ecra:hover{transform:translateY(-3px)}
+.ecra img{width:100%;height:auto;aspect-ratio:9/12;object-fit:cover;object-position:top}
+.galeria{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-bottom:3.5rem}
+.galeria .ecra span{display:block;padding:.55rem .4rem;font:600 .9rem var(--corpo);color:var(--texto);text-align:center}
+.galeria .ecra img{aspect-ratio:9/13}
+.outros{font-size:1.4rem;margin-bottom:1.25rem}
+.marca-app{font:700 1.15rem var(--display);color:var(--oceano)}
+.projecto.mais{justify-content:center;background:color-mix(in srgb,var(--oceano) 8%,var(--superficie))}
+@media (max-width:980px){ .galeria{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:820px){ .produto{grid-template-columns:1fr} .produto-principal{max-width:360px} }
+@media (max-width:480px){ .galeria{grid-template-columns:repeat(2,1fr)} }
+/* Ampliar ecrãs */
+#janelaImagem{width:fit-content;height:fit-content;overflow:hidden;max-width:94vw;max-height:94vh;background:transparent}
+#janelaImagem img{max-height:86vh;width:auto;border-radius:12px}
+#janelaImagem .barra{border-radius:12px 12px 0 0}
+/* Janela do módulo (iframe) */
+dialog{width:min(1100px,96vw);height:min(720px,90vh);padding:0;border:0;border-radius:14px;background:#000;overflow:hidden}
+dialog::backdrop{background:rgba(10,20,40,.75)}
+dialog .barra{display:flex;justify-content:space-between;align-items:center;background:#13294B;color:#fff;padding:.5rem .9rem;font-weight:600}
+dialog .barra a,dialog .barra button{color:#fff;background:none;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:.3rem .7rem;font:600 .9rem var(--corpo);cursor:pointer;text-decoration:none;margin-left:.4rem}
+dialog iframe{width:100%;height:calc(100% - 46px);border:0;background:#fff}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <nav class="contentor" aria-label="Principal">
+    <a class="marca" href="#inicio">Mário Muvambo</a>
+    <ul class="menu">
+      <li><a href="#sobre" data-en="About">Sobre</a></li>
+      <li><a href="#competencias" data-en="Skills">Competências</a></li>
+      <li><a href="#elearning">E-Learning</a></li>
+      <li><a href="#projectos" data-en="Projects">Projectos</a></li>
+      <li><a href="#experiencia" data-en="Experience">Experiência</a></li>
+      <li><a href="#contacto" data-en="Contact">Contacto</a></li>
+    </ul>
+    <button class="idioma" id="trocarIdioma" aria-label="Mudar idioma / Change language"><b>PT</b> / EN</button>
+  </nav>
+</header>
+
+<main>
+<!-- ============ INÍCIO ============ -->
+<section class="inicio" id="inicio">
+  <div class="contentor">
+    <div>
+      <h1>Mário Castigo Muvambo</h1>
+      <p class="cargo"><span data-en="Full Stack Developer">Desenvolvedor Full Stack</span><span class="sep" aria-hidden="true">|</span><span data-en="E-Learning Developer">Desenvolvedor de E-Learning</span></p>
+      <p class="intro" data-en="I build web and mobile applications and interactive e-learning solutions, from the database to the user experience.">Desenvolvo aplicações web e móveis e soluções de e-learning interactivas, da base de dados à experiência do utilizador.</p>
+      <div class="botoes">
+        <a class="btn btn-principal" href="#elearning" data-en="See my work">Ver o meu trabalho</a>
+        <a class="btn btn-linha" href="cv/Mario_Muvambo_CV_PT.pdf" download data-en="CV in Portuguese">CV em Português</a>
+        <a class="btn btn-linha" href="cv/Mario_Muvambo_CV_EN.pdf" download data-en="CV in English">CV em Inglês</a>
+      </div>
+      <p class="local" data-en="Matola, Maputo – Mozambique · Available for new opportunities">Matola, Maputo – Moçambique · Disponível para novas oportunidades</p>
+    </div>
+    <div class="moldura">
+      <div class="capulana" aria-hidden="true"></div>
+      <img src="images/mario-retrato.jpg" alt="Fotografia de Mário Castigo Muvambo" width="780" height="975">
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="alt" id="sobre">
+  <div class="contentor sobre">
+    <img src="images/mario-graduacao.jpg" alt="Mário na cerimónia de graduação da Universidade Eduardo Mondlane" loading="lazy" width="720" height="900">
+    <div>
+      <h2 data-en="About me">Sobre mim</h2>
+      <p data-en="I am a Full Stack Developer and E-Learning Content Developer with a degree in Informatics from Eduardo Mondlane University and over 4 years of experience building web and mobile applications and digital learning solutions.">Sou Desenvolvedor Full Stack e de Conteúdos E-Learning, licenciado em Informática pela Universidade Eduardo Mondlane, com mais de 4 anos de experiência no desenvolvimento de aplicações web e móveis e de soluções de aprendizagem digital.</p>
+      <p data-en="I currently develop interactive learning modules in Articulate Storyline 360 and manage course content on Moodle for the Institute of Open and Distance Education (IEDA). I combine programming with instructional design to deliver reliable, easy-to-use products.">Actualmente, concebo módulos de aprendizagem interactivos em Articulate Storyline 360 e giro conteúdos formativos no Moodle para o Instituto de Educação Aberta e à Distância (IEDA). Alio a programação ao design instrucional para entregar produtos fiáveis e fáceis de usar.</p>
+      <div class="factos">
+        <div><strong data-en="BSc in Informatics">Licenciatura em Informática</strong><span data-en="Eduardo Mondlane University, 2025">Universidade Eduardo Mondlane, 2025</span></div>
+        <div><strong data-en="4+ years">Mais de 4 anos</strong><span data-en="of development experience">de experiência em desenvolvimento</span></div>
+        <div><strong data-en="Languages">Idiomas</strong><span data-en="Portuguese (native), English (intermediate)">Português (materna), Inglês (intermédio)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPETÊNCIAS ============ -->
+<section id="competencias">
+  <div class="contentor">
+    <h2 data-en="Skills">Competências</h2>
+    <p class="lead" data-en="Tools and technologies I use every day, from the mobile app to the learning platform.">Ferramentas e tecnologias que uso no dia-a-dia, da aplicação móvel à plataforma de aprendizagem.</p>
+    <div class="grupos">
+      <div><h3 data-en="Mobile &amp; Frontend">Mobile e Frontend</h3><ul><li>React Native</li><li>UX/UI</li><li data-en="Maps and geolocation">Mapas e geolocalização</li></ul></div>
+      <div><h3>Backend</h3><ul><li>Laravel</li><li>Django e Django REST Framework</li><li data-en="REST APIs and integration">APIs REST e integração</li><li data-en="Digital payments">Pagamentos digitais</li></ul></div>
+      <div><h3 data-en="Data &amp; tools">Dados e ferramentas</h3><ul><li>MySQL</li><li>SQLite</li><li>Git e GitHub</li><li data-en="Authentication and permissions">Autenticação e permissões</li></ul></div>
+      <div><h3>E-Learning</h3><ul><li>Articulate Storyline 360</li><li>Moodle</li><li data-en="Instructional design">Design instrucional</li><li data-en="Content digitization">Digitalização de conteúdos</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ E-LEARNING ============ -->
+<section class="alt" id="elearning">
+  <div class="contentor">
+    <h2 data-en="E-Learning work">Trabalho em E-Learning</h2>
+    <p class="lead" data-en="Interactive modules built in Articulate Storyline 360. Open a module to try it right here.">Módulos interactivos criados em Articulate Storyline 360. Abra um módulo para o experimentar aqui mesmo.</p>
+
+    <article class="destaque">
+      <img src="images/mario-ieda.jpg" alt="Mário em frente ao Instituto de Educação Aberta e à Distância (IEDA)" loading="lazy" width="860" height="720">
+      <div class="corpo">
+        <h3 data-en="IEDA Project – Distance Secondary Education Programme (PESD1)">Projecto IEDA – Programa do Ensino Secundário à Distância (PESD1)</h3>
+        <p data-en="Delivered the IEDA Project to the first-cycle Distance Secondary Education Programme. The programme stems from the Government of Mozambique's decision to offer secondary education both face-to-face and at a distance, expanding access to education for children, young people and adults.">Entrega do Projecto IEDA ao Programa do Ensino Secundário à Distância do primeiro ciclo. O programa resulta da decisão do Governo de Moçambique de oferecer o Ensino Secundário nas modalidades presencial e à distância, alargando o acesso à educação a crianças, jovens e adultos.</p>
+        <p data-en="I developed interactive modules, multimedia resources and assessments, and organized the content on Moodle.">Desenvolvi módulos interactivos, recursos multimédia e avaliações, e organizei os conteúdos no Moodle.</p>
+        <ul class="tecnologias"><li>Articulate Storyline 360</li><li>Moodle</li><li data-en="Instructional design">Design instrucional</li><li>QA</li></ul>
+      </div>
+    </article>
+
+    <h3 data-en="Interactive modules">Módulos interactivos</h3>
+    <p class="lead" data-en="Modules built by me in Articulate Storyline 360. Open them and try them right here.">Módulos desenvolvidos por mim em Articulate Storyline 360. Abra-os e experimente-os aqui mesmo.</p>
+    <div class="modulos">
+      <article class="modulo largo">
+        <button class="capa-img abrir-modulo" data-src="elearning/quiz-seguranca-digital/story.html" aria-label="Abrir o quiz Segurança digital no trabalho">
+          <img src="images/elearning/quiz-seguranca-capa.jpg" alt="Diapositivo inicial do quiz Segurança digital no trabalho" loading="lazy" width="1080" height="607">
+          <span class="jogar"><span class="tri" aria-hidden="true"></span></span>
+        </button>
+        <div class="corpo">
+          <h3 data-en="Quiz: Digital security at work">Quiz: Segurança digital no trabalho</h3>
+          <p data-en="A short course that teaches how to recognise digital scams, with five question types: multiple choice, true or false, multiple response, a scenario with a character and a hotspot.">Um pequeno curso que ensina a reconhecer burlas digitais, com cinco tipos de pergunta: escolha múltipla, verdadeiro ou falso, resposta múltipla, cenário com personagem e hotspot.</p>
+          <ul class="destaques">
+            <li data-en="Explanatory feedback on every answer">Feedback explicativo em cada resposta</li>
+            <li data-en="Character whose expression changes with the learner's choice">Personagem cuja expressão muda com a escolha do formando</li>
+            <li data-en="Score, 80% pass mark, review and retry">Pontuação, nota mínima de 80%, revisão e nova tentativa</li>
+            <li data-en="Also available as a SCORM 1.2 package for Moodle">Disponível também em pacote SCORM 1.2 para o Moodle</li>
+          </ul>
+          <ul class="tecnologias"><li>Storyline 360</li><li data-en="Triggers and layers">Triggers e camadas</li><li data-en="States">Estados</li><li>SCORM</li></ul>
+          <button class="btn btn-principal abrir-modulo" data-src="elearning/quiz-seguranca-digital/story.html" data-en="Try the quiz">Experimentar o quiz</button>
+        </div>
+      </article>
+      <!-- PRÓXIMOS MÓDULOS: copie o bloco <article class="modulo largo"> acima e troque a pasta, a imagem e os textos. -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTOS DE DESENVOLVIMENTO ============ -->
+<section id="projectos">
+  <div class="contentor">
+    <h2 data-en="Development projects">Projectos de desenvolvimento</h2>
+    <p class="lead" data-en="Web and mobile applications, from the database to the app in the user's hands.">Aplicações web e móveis, da base de dados à aplicação nas mãos do utilizador.</p>
+    <!-- ===== PROJECTO EM DESTAQUE: PARÓQUIA DIGITAL ===== -->
+    <article class="produto">
+      <div class="produto-texto">
+        <h3 class="produto-titulo">Paróquia Digital</h3>
+        <p class="produto-sub" data-en="Parish management on the phone: members, sacraments, certificates, events, groups and finances in one app.">A gestão da paróquia no telemóvel: membros, sacramentos, certidões, eventos, grupos e finanças numa só app.</p>
+        <p data-en="I designed and built the whole system on my own: the database, the Django REST API, the permission rules, the React Native app and the product website. What used to live in notebooks, loose sheets and WhatsApp messages is now in one secure place.">Concebi e desenvolvi sozinho todo o sistema: a base de dados, a API em Django REST, as regras de permissão, a aplicação em React Native e o site do produto. O que estava em cadernos, folhas soltas e mensagens de WhatsApp passa a estar num só sítio, seguro e fácil de consultar.</p>
+        <ul class="destaques">
+          <li data-en="&lt;b&gt;Six roles&lt;/b&gt;, from administrator to member, checked on the server on every request"><b>Seis papéis</b>, do administrador ao fiel, verificados no servidor em cada pedido</li>
+          <li data-en="&lt;b&gt;Sacraments&lt;/b&gt; recorded with book, page and number, and PDF certificates with &lt;b&gt;QR verification&lt;/b&gt;"><b>Sacramentos</b> com livro, folha e número, e certidões em PDF com <b>verificação por QR</b></li>
+          <li data-en="&lt;b&gt;Contributions&lt;/b&gt; with numbered receipts, by M-Pesa, e-Mola, cash and bank"><b>Contribuições</b> com recibo numerado, por M-Pesa, e-Mola, numerário e banco</li>
+          <li data-en="&lt;b&gt;Monthly report&lt;/b&gt; in PDF, fundraising goals and expenses by category"><b>Relatório mensal</b> em PDF, metas de angariação e despesas por categoria</li>
+          <li data-en="Events with &lt;b&gt;push notifications&lt;/b&gt;, sign-ups and attendance"><b>Eventos</b> com aviso no telemóvel, inscrições e presenças</li>
+          <li data-en="Access requests approved by the secretary, and &lt;b&gt;nightly encrypted backups&lt;/b&gt;">Pedidos de acesso aprovados pela secretaria e <b>cópia de segurança cifrada</b> todas as noites</li>
+        </ul>
+        <ul class="tecnologias"><li>Django</li><li>Django REST Framework</li><li>React Native</li><li data-en="Role-based access">Permissões por papel</li><li>PDF + QR</li></ul>
+        <div class="accoes">
+          <a class="btn btn-principal" href="https://mariomuvambo.github.io/paroquia-digital-site/" target="_blank" rel="noopener" data-en="Visit product website">Ver o site do produto</a>
+          <a class="btn btn-linha" href="https://github.com/mariomuvambo" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <figure class="produto-principal">
+        <button class="ecra" data-img="images/paroquia/dashboard.jpg" data-legenda="Painel inicial" data-legenda-en="Home dashboard">
+          <img src="images/paroquia/dashboard.jpg" alt="Painel inicial da Paróquia Digital, com o saldo, os membros, os sacramentos, os eventos e as metas financeiras" loading="lazy" width="900" height="1273">
+        </button>
+        <figcaption data-en="Home dashboard · demo parish with fictitious data">Painel inicial · paróquia de demonstração, com dados fictícios</figcaption>
+      </figure>
+    </article>
+
+    <div class="galeria" aria-label="Ecrãs da Paróquia Digital">
+      <button class="ecra" data-img="images/paroquia/members.jpg" data-legenda="Membros" data-legenda-en="Members"><img src="images/paroquia/members.jpg" alt="Lista de membros com código e telefone" loading="lazy" width="900" height="1271"><span data-en="Members">Membros</span></button>
+      <button class="ecra" data-img="images/paroquia/sacraments.jpg" data-legenda="Sacramentos" data-legenda-en="Sacraments"><img src="images/paroquia/sacraments.jpg" alt="Registo de sacramentos com livro, folha e número" loading="lazy" width="900" height="1273"><span data-en="Sacraments">Sacramentos</span></button>
+      <button class="ecra" data-img="images/paroquia/contributions.jpg" data-legenda="Contribuições" data-legenda-en="Contributions"><img src="images/paroquia/contributions.jpg" alt="Contribuições com recibo e método de pagamento" loading="lazy" width="900" height="1271"><span data-en="Contributions">Contribuições</span></button>
+      <button class="ecra" data-img="images/paroquia/reports.jpg" data-legenda="Relatório financeiro" data-legenda-en="Financial report"><img src="images/paroquia/reports.jpg" alt="Relatório financeiro mensal com gráfico dos últimos seis meses" loading="lazy" width="900" height="1271"><span data-en="Financial report">Relatório financeiro</span></button>
+      <button class="ecra" data-img="images/paroquia/events.jpg" data-legenda="Eventos" data-legenda-en="Events"><img src="images/paroquia/events.jpg" alt="Agenda de eventos com cartazes" loading="lazy" width="900" height="1273"><span data-en="Events">Eventos</span></button>
+      <button class="ecra" data-img="images/paroquia/users.jpg" data-legenda="Utilizadores e papéis" data-legenda-en="Users and roles"><img src="images/paroquia/users.jpg" alt="Lista de utilizadores com o papel de cada um" loading="lazy" width="900" height="1273"><span data-en="Users and roles">Utilizadores e papéis</span></button>
+    </div>
+
+    <h3 class="outros" data-en="Other projects">Outros projectos</h3>
+    <div class="projectos">
+      <article class="projecto">
+        <div class="imagem"><span class="marca-app">React Native · Maps</span><img src="images/projectos/mobilidade.jpg" alt="Captura de ecrã da Aplicação de Mobilidade" loading="lazy" onerror="this.remove()"></div>
+        <div class="corpo">
+          <h3 data-en="Mobility Mobile App">Aplicação Móvel de Mobilidade</h3>
+          <ul class="pontos">
+            <li data-en="Transport app with maps and location services.">Aplicação de transporte com mapas e serviços de geolocalização.</li>
+            <li data-en="Automatic fare calculation.">Cálculo automático de tarifas.</li>
+            <li data-en="Structured communication between the app and the backend.">Comunicação estruturada entre a aplicação e o servidor.</li>
+          </ul>
+          <ul class="tecnologias"><li>React Native</li><li>Maps API</li><li>REST API</li></ul>
+          <div class="accoes">
+            <a class="btn btn-linha" href="https://github.com/mariomuvambo" target="_blank" rel="noopener" data-en="View on GitHub">Ver no GitHub</a>
+          </div>
+        </div>
+      </article>
+      <article class="projecto mais">
+        <div class="corpo">
+          <h3 data-en="More on GitHub">Mais no GitHub</h3>
+          <p data-en="Code, experiments and other projects I am working on.">Código, experiências e outros projectos em que estou a trabalhar.</p>
+          <div class="accoes"><a class="btn btn-principal" href="https://github.com/mariomuvambo" target="_blank" rel="noopener" data-en="See my GitHub">Ver o meu GitHub</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIÊNCIA ============ -->
+<section class="alt" id="experiencia">
+  <div class="contentor">
+    <h2 data-en="Experience">Experiência</h2>
+    <p class="lead" data-en="Where I have worked, most recent first.">Onde trabalhei, do mais recente para o mais antigo.</p>
+    <ol class="linha-tempo">
+      <li>
+        <div class="periodo" data-en="2025 – Present">2025 – Actualidade</div>
+        <h3 data-en="E-Learning Content Developer – IEDA Project">Desenvolvedor de Conteúdos E-Learning – Projecto IEDA</h3>
+        <div class="empresa">OneConnect Consulting</div>
+        <p data-en="Interactive modules in Articulate Storyline 360, multimedia resources and assessments, content management on Moodle and cross-device quality testing.">Módulos interactivos em Articulate Storyline 360, recursos multimédia e avaliações, gestão de conteúdos no Moodle e testes de qualidade em vários dispositivos.</p>
+      </li>
+      <li>
+        <div class="periodo" data-en="2022 – Present">2022 – Actualidade</div>
+        <h3 data-en="Full Stack Developer">Desenvolvedor Full Stack</h3>
+        <div class="empresa" data-en="Freelance / Independent projects">Freelancer / Projectos independentes</div>
+        <p data-en="React Native mobile apps, REST APIs with Laravel and Django, digital payments, authentication and performance optimization.">Aplicações móveis em React Native, APIs REST com Laravel e Django, pagamentos digitais, autenticação e optimização de desempenho.</p>
+      </li>
+      <li>
+        <div class="periodo" data-en="Nov 2023 – Apr 2024">Novembro de 2023 – Abril de 2024</div>
+        <h3 data-en="IT Technician – Professional Internship">Técnico de Informática – Estágio Profissional</h3>
+        <div class="empresa">Connect Plus, SA</div>
+        <p data-en="Development and maintenance of internal applications, software testing and technical support.">Desenvolvimento e manutenção de aplicações internas, testes de software e suporte técnico.</p>
+      </li>
+    </ol>
+
+    <h2 style="margin-top:2.5rem" data-en="Education and certifications">Formação e certificações</h2>
+    <div class="certs" style="margin-top:1.5rem">
+      <div class="cert">
+        <h3 data-en="BSc in Informatics">Licenciatura em Informática</h3>
+        <p data-en="Eduardo Mondlane University – Faculty of Sciences">Universidade Eduardo Mondlane – Faculdade de Ciências</p>
+        <p data-en="Completed December 2025">Concluída em Dezembro de 2025</p>
+      </div>
+      <div class="cert">
+        <h3>Create eLearning Courses with Articulate Storyline 360</h3>
+        <p data-en="Udemy · Instructor Jeff Batt · 14 hours">Udemy · Formador Jeff Batt · 14 horas</p>
+        <p><a href="https://ude.my/UC-d75020d3-b852-4266-999d-8a2938edf184" target="_blank" rel="noopener" data-en="Verify certificate">Verificar certificado</a></p>
+      </div>
+      <div class="cert">
+        <h3>Huawei Seeds for the Future 2023–2024</h3>
+        <p data-en="Huawei · 15 hours · 5G, AI, Cloud and Digital Power">Huawei · 15 horas · 5G, IA, Cloud e Digital Power</p>
+        <p data-en="Tech4Good competition">Competição Tech4Good</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ CONTACTO ============ -->
+<section class="contacto" id="contacto">
+  <div class="contentor">
+    <h2 data-en="Let's work together">Vamos trabalhar juntos</h2>
+    <p class="lead" data-en="Open to full-time roles, projects and collaborations in development and e-learning.">Disponível para vagas a tempo inteiro, projectos e colaborações em desenvolvimento e e-learning.</p>
+    <div class="contactos">
+      <a href="mailto:mariomuvambo1@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>mariomuvambo1@gmail.com</a>
+      <a href="https://wa.me/258846730462" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.4A9 9 0 1 1 21 12z"/></svg>+258 84 67 30 462</a>
+      <a href="https://www.linkedin.com/in/mario-muvambo-b040761a1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.5-2.2 2.9V21h-4z"/></svg>LinkedIn</a>
+      <a href="https://github.com/mariomuvambo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</section>
+<div class="faixa capulana" aria-hidden="true"></div>
+<footer><div class="contentor">© <span id="ano"></span> Mário Castigo Muvambo · Maputo, Moçambique</div></footer>
+
+<!-- Janela para experimentar módulos Storyline -->
+<dialog id="janelaModulo" aria-label="Módulo de e-learning">
+  <div class="barra">
+    <span id="tituloModulo"></span>
+    <span>
+      <a id="abrirSeparador" href="#" target="_blank" rel="noopener" data-en="Full screen">Ecrã inteiro</a>
+      <button id="fecharModulo" data-en="Close">Fechar</button>
+    </span>
+  </div>
+  <iframe id="moldeModulo" title="Módulo de e-learning" allowfullscreen></iframe>
+</dialog>
+
+<dialog id="janelaImagem" aria-label="Ecrã ampliado">
+  <div class="barra"><span id="legendaImagem"></span><span><button id="fecharImagem" data-en="Close">Fechar</button></span></div>
+  <img id="imagemAmpliada" alt="">
+</dialog>
+
+<script>
+// ---------- Idioma PT / EN ----------
+const traduziveis = document.querySelectorAll('[data-en]');
+traduziveis.forEach(el => el.dataset.pt = el.innerHTML);
+function aplicarIdioma(lang){
+  traduziveis.forEach(el => el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.pt);
+  document.documentElement.lang = lang;
+  document.getElementById('trocarIdioma').innerHTML = lang === 'en' ? 'PT / <b>EN</b>' : '<b>PT</b> / EN';
+  try { localStorage.setItem('idioma', lang); } catch(e){}
+}
+let idioma = 'pt';
+try { idioma = localStorage.getItem('idioma') || 'pt'; } catch(e){}
+if (idioma === 'en') aplicarIdioma('en');
+document.getElementById('trocarIdioma').addEventListener('click', () => {
+  idioma = idioma === 'pt' ? 'en' : 'pt'; aplicarIdioma(idioma);
+});
+
+// ---------- Módulos Storyline ----------
+const janela = document.getElementById('janelaModulo');
+const molde = document.getElementById('moldeModulo');
+document.querySelectorAll('.abrir-modulo').forEach(b => b.addEventListener('click', () => {
+  molde.src = b.dataset.src;
+  document.getElementById('abrirSeparador').href = b.dataset.src;
+  document.getElementById('tituloModulo').textContent = b.closest('.modulo').querySelector('h3').textContent;
+  janela.showModal();
+}));
+document.getElementById('fecharModulo').addEventListener('click', () => janela.close());
+janela.addEventListener('close', () => molde.src = 'about:blank');
+
+
+// ---------- Ampliar ecrãs da Paróquia Digital ----------
+const janelaImg = document.getElementById('janelaImagem');
+document.querySelectorAll('.ecra').forEach(b => b.addEventListener('click', () => {
+  const img = document.getElementById('imagemAmpliada');
+  img.src = b.dataset.img; img.alt = b.querySelector('img').alt;
+  document.getElementById('legendaImagem').textContent = document.documentElement.lang === 'en' ? b.dataset.legendaEn : b.dataset.legenda;
+  janelaImg.showModal();
+}));
+document.getElementById('fecharImagem').addEventListener('click', () => janelaImg.close());
+janelaImg.addEventListener('click', e => { if (e.target === janelaImg) janelaImg.close(); });
+
+document.getElementById('ano').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
